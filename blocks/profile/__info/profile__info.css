@@ -4,7 +4,7 @@
   grid-template-columns: max-content 1fr;
   justify-items: flex-start;
   align-items: center;
-  row-gap: 16px;
+  row-gap: 6px;
   grid-row: auto;
   margin: 0 0 0 30px;
   max-height: 73px;
