@@ -1,0 +1,22 @@
+.popup__form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 358px;
+  margin: 0 auto;
+}
+
+.popup__form:nth-child(2) {
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 550px) {
+  .popup__form {
+    max-width: 282px;
+    width: 100%;
+  }
+}

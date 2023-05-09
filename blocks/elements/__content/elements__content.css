@@ -1,0 +1,7 @@
+.elements__content {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 23px 18px auto 21px;
+}
