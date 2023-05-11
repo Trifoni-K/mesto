@@ -4,22 +4,22 @@
   border: 2px solid #FFFFFF;
   border-radius: 2px;
   background-image: url(../../../images/button_profile.svg);
-  background-size: 22px;
+  background-size: 22px 22px;
   background-repeat: no-repeat;
-  background-color: #000000;
+  background-color: rgba(0, 0, 0, 0);
   background-position: center;
+  cursor: pointer;
+  transition: opacity 0.5s linear;
 }
 
 .profile__button:hover {
-  transition: opacity 0.5s linear;
-  opacity: 0.6;
-  cursor: pointer;
+  opacity: 0.6;  
 }
 
 @media screen and (max-width: 550px) {
   .profile__button {
     min-width: 282px;
-    background-size: 16px;
+    background-size: 16px 16px;
     margin-top: 32px;
   }
 }

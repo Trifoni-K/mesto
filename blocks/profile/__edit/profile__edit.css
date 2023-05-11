@@ -4,17 +4,21 @@
   margin-left: 18px;
   grid-column: 2;
   grid-row: 1;
+  background-image: url(../../../images/edit_button.svg);
+  background-size: 10px 10px;
+  background-position: center;
+  background-repeat: no-repeat;
   border: 1px solid #FFFFFF;
-  background-color: #000;
+  background-color: rgba(255, 255, 255, 0);
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+  transition: opacity 0.5s linear;
 }
 
 .profile__edit:hover {
-  transition: opacity 0.5s linear;
   opacity: 0.6;
-  cursor: pointer;
 }
   
 @media screen and (max-width: 750px) {
@@ -22,5 +26,6 @@
     width: 18px;
     height: 18px;
     margin-left: 10px;
+    background-size: 7.5px;
   }
 }

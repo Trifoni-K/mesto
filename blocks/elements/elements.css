@@ -1,5 +1,9 @@
 .elements {
-  background-color: #fff;
-  border-radius: 10px;
-  min-height: 361px;
+  max-width: 100vw;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(282px, 282px));
+  justify-content: center;
+  row-gap : 20px;
+  column-gap: 17px;
+  margin: 0;
 }

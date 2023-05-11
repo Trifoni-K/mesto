@@ -1,5 +1,4 @@
 .profile__info {
-  position: relative;
   display: grid;
   grid-template-columns: max-content 1fr;
   justify-items: flex-start;
@@ -7,7 +6,6 @@
   row-gap: 6px;
   grid-row: auto;
   margin: 0 0 0 30px;
-  max-height: 73px;
 }
 
 @media screen and (max-width: 550px) {

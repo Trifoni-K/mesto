@@ -1,5 +1,4 @@
 .profile {
-  position: relative;
   margin: 40px auto 51px;
   display: grid;
   grid-template-columns: 120px 1fr max-content;
@@ -10,7 +9,7 @@
   .profile {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(3, max-content);
-    margin: 42px auto 36px;
+    margin: 33px auto 36px;
     justify-items: center;
   }
 }

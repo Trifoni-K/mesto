@@ -1,7 +1,6 @@
-.elements__content {
-  position: relative;
+.element__content {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 23px 18px 31px 21px;
+  margin: 24px 18px 26px 21px;
 }
