@@ -5,7 +5,7 @@
   align-items: center;
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 650px) {
   .profile {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(3, max-content);

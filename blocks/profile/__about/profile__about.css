@@ -22,9 +22,8 @@
   }
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 650px) {
   .profile__about {
     justify-self: center;
-    max-width: 250px;
   }
 }

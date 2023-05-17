@@ -8,7 +8,7 @@
   margin: 0 0 0 30px;
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 650px) {
   .profile__info {
     margin-top: 26px;
     row-gap: 8px;
