@@ -26,7 +26,7 @@ const cardName = document.querySelector('.element__title');
 const cardLink = document.querySelector('.element__image');
 const picCard = document.querySelector('.popup__pic');
 const picLink = document.querySelector('.popup__image');
-const picName = document.querySelector('.popup__title-pic');
+const picName = document.querySelector('.popup__about');
 const elementCard = document.querySelector('.element');
 const popupInput = document.querySelector('.popup__input');
 
