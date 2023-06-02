@@ -36,24 +36,33 @@
     <div class="popup__container">
       <button class="popup__close popup__close_edit" type="button"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
-      <form class="popup__form" method="post" name="popupForm">
+      <form class="popup__form" id="formEdit" method="post" name="popupForm">
         <input class="popup__input popup__input_profile_name" type="text" placeholder="ФИО" name="name" required>
         <input class="popup__input popup__input_profile_job" type="text" placeholder="Расскажите о себе" name="description" required>
-        <button type="submit" class="popup__button">Сохранить</button>
+        <button type="submit" class="popup__button popup__button_type_edit" oneclick="">Сохранить</button>
       </form>
     </div>
   </div>
   </div>
 <!-- popup insert -->
-<div class="popup popup_type_insert">
-  <div class="popup__container">
-    <button class="popup__close popup__close_insert" type="button"></button>
-    <h2 class="popup__title">Новое место</h2>
-    <form class="popup__form" method="post" name="popupForm">
-      <input class="popup__input popup__input_card_name" type="text" placeholder="Название" name="name" required>
-      <input class="popup__input popup__input_card_link" type="text" placeholder="Ссылка на картинку" name="description" required>
-      <button type="submit" class="popup__button">Создать</button>
-    </form>
+  <div class="popup popup_type_insert">
+    <div class="popup__container">
+      <button class="popup__close popup__close_insert" type="button"></button>
+      <h2 class="popup__title">Новое место</h2>
+      <form class="popup__form" id="formInsert" method="post" name="popupForm">
+        <input class="popup__input popup__input_card_name" type="text" placeholder="Название" name="name" required>
+        <input class="popup__input popup__input_card_link" type="text" placeholder="Ссылка на картинку" name="description" required>
+        <button type="submit" class="popup__button popup__button_type_insert">Создать</button>
+      </form>
+    </div>
+  </div> 
+  <!-- popup pic -->
+  <div class="popup popup_type_pic">
+    <figure class="popup-pic__container">
+      <button class="popup__close" type="button"></button>
+      <img class="popup-pic__image" alt="" src="">
+      <figcaption class="popup-pic__title"></figcaption>
+    </figure>
   </div>
 <!-- Cards -->
   <template class="element-template">
@@ -66,7 +75,6 @@
       <button class="element__delete" type="button"></button>
     </article>
   </template>
-</div> 
 <script src="./scripts/index.js" defer></script>
 </body>
 </html>

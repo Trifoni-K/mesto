@@ -1,0 +1,7 @@
+.popup-pic__image {
+width: 75vw;
+height: 75vh;
+object-position: center;
+object-fit: cover;
+margin: 0;
+}
