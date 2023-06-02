@@ -24,9 +24,9 @@ const nameCardInput = document.querySelector('.popup__input_card_name');
 const linkCardInput = document.querySelector('.popup__input_card_link');
 const cardName = document.querySelector('.element__title');
 const cardLink = document.querySelector('.element__image');
-const picCard = document.querySelector('.popup-pic__container');
-const picLink = document.querySelector('.popup-pic__image');
-const picName = document.querySelector('.popup-pic__title');
+const picCard = document.querySelector('.popup__pic');
+const picLink = document.querySelector('.popup__image');
+const picName = document.querySelector('.popup__title-pic');
 const elementCard = document.querySelector('.element');
 const popupInput = document.querySelector('.popup__input');
 
