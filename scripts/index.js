@@ -25,9 +25,20 @@ const picLink = document.querySelector('.popup__image');
 const picName = document.querySelector('.popup__about');
 const popupInput = document.querySelector('.popup__input');
 
+// enableValidation({
+//   formSelector: '.popup__form',
+//   inputSelector: '.popup__input',
+//   submitButtonSelector: '.popup__button',
+//   inactiveButtonClass: 'popup__button_disabled',
+//   inputErrorClass: 'popup__input_type_error',
+//   errorClass: 'popup__error_visible'
+// });
+
 // Функции открытия и закрытия попап
 const openPopup = (popuplist) => {
   popuplist.classList.add('popup_opened');
+  document.addEventListener('keydown', closePopupEsc);
+  document.addEventListener('click', closePopupOverlay);
 };
 openPopupButton.addEventListener('click', () => {
   nameInput.value = profileName.textContent;
@@ -37,12 +48,32 @@ openPopupButton.addEventListener('click', () => {
 
 const closePopup = (popuplist) => {
   popuplist.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closePopupEsc);
+  document.removeEventListener('click', closePopupOverlay);
 };
 closeButtonlists.forEach((item) => {
   item.addEventListener('click', () => {
     popuplists.forEach(closePopup);
   });
 });
+
+const closePopupEsc = (evt) => {
+  if (evt.key === 'Escape') {
+    popuplists.forEach((el) => {
+      el.addEventListener('click', closePopup(el));
+    });
+  };
+};
+
+const closePopupOverlay = () => {
+  popuplists.forEach((el) => {
+    el.addEventListener('click', (evt) => {
+      if (evt.target === evt.currentTarget) {
+        closePopup(el);
+      };
+    }) 
+  });
+};
 
 // Профиль
 const handleFormSubmitEdit = (evt) =>{
