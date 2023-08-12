@@ -134,7 +134,7 @@ const handleAddCardFormSubmit = (evt) => {
   closePopup(cardForm);
 };
 
-enableValidation(validationConfig)
+enableValidation(validationConfig);
 //Отправка формы(редактировать профиль)
 profileForm.addEventListener('submit', handleFormSubmitEdit);
 //Отправка формы(создание карточки)
