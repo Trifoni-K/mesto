@@ -31,29 +31,30 @@ function checkValidateInput(inputElement, validationConfig) {
   };
 };
 
-function enableSubmitButton(formElement) {
+function enableSubmitButton(formElement, validationConfig) {
   const submitButtonElement = formElement.querySelector(validationConfig.submitButtonSelector);
 
   submitButtonElement.disabled = false;
   submitButtonElement.classList.remove(validationConfig.inactiveButtonClass);
 }
 
-function disableSubmitButton(formElement) {
+function disableSubmitButton(formElement, validationConfig) {
   const submitButtonElement = formElement.querySelector(validationConfig.submitButtonSelector);
 
   submitButtonElement.disabled = true;
   submitButtonElement.classList.add(validationConfig.inactiveButtonClass);
 }
 
-function toggleButtonState(formElement, submitButtonElement) {
+function toggleButtonState(formElement, validationConfig) {
+
   if(!formElement.checkValidity()) {
-    disableSubmitButton(formElement, submitButtonElement);
+    disableSubmitButton(formElement, validationConfig);
   } else {
-    enableSubmitButton(formElement, submitButtonElement);
+    enableSubmitButton(formElement, validationConfig);
   };
 };
 
-function hideInputError(formElement) {
+function hideInputError(formElement, validationConfig) {
   const inputList = Array.from(formElement.querySelectorAll(validationConfig.inputSelector));
 
   inputList.forEach((inputElement) => {
@@ -63,13 +64,12 @@ function hideInputError(formElement) {
 
 function setEventListeners(formElement, validationConfig) {
   const inputList = Array.from(document.querySelectorAll(validationConfig.inputSelector));
-  const submitButtonElement = formElement.querySelector(validationConfig.submitButtonSelector);
 
-  toggleButtonState(formElement, submitButtonElement);
+  toggleButtonState(formElement, validationConfig);
 
   inputList.forEach((inputElement) => {
     inputElement.addEventListener('input', function () {
-      toggleButtonState(formElement, submitButtonElement);
+      toggleButtonState(formElement, validationConfig);
       checkValidateInput(inputElement, formElement, validationConfig);
     });
   });
@@ -82,33 +82,3 @@ function enableValidation(validationConfig) {
     setEventListeners(formElement, validationConfig);
   });
 };
-
-// function hasInvalidInput(inputList) {
-//   return inputList.some((inputElement) => {
-//   return !inputElement.validity.valid;
-// }); 
-// }
-
-
-
-// function formSubmitButtonEditProfile(validationConfig){
-  //   const inputList = Array.from(document.querySelectorAll('.popup__input'));
-    
-  //   inputList.forEach((inputElement) => {
-  //     hideError (inputElement, validationConfig);
-  //   });
-  // }
-  
-// Enable кнопки при открытии ProfileEdit
-// function enableButtonProfileEdit(formElement) {
-//   const submitButtonElement = formElement.querySelector(validationConfig.submitButtonSelector);
-//   submitButtonElement.disabled = false;
-//   submitButtonElement.classList.remove(validationConfig.inactiveButtonClass);
-// };
-
-// Дизейбл кнопки и скрытие ошибок при открытии OpenCards
-// function disableButtonOpenCard(formElement) {
-//   const submitButtonElement = formElement.querySelector(validationConfig.submitButtonSelector);
-//   submitButtonElement.disabled = true;
-//   submitButtonElement.classList.add(validationConfig.inactiveButtonClass);
-// };

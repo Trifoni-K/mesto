@@ -28,8 +28,8 @@ openButtonEditProfile.addEventListener('click', () => {
   openPopup(profileForm);
   nameInput.value = profileName.textContent;
   jobInput.value = profileAbout.textContent;
-  enableSubmitButton(profileForm);
-  hideInputError(profileForm);
+  enableSubmitButton(profileForm, validationConfig);
+  hideInputError(profileForm, validationConfig);
 });
 
 //Закрытие
@@ -65,8 +65,8 @@ openCardsPopupButton.addEventListener('click', () => {
   linkCardInput.value = '';
   nameCardInput.value = '';
   openPopup(cardForm);
-  disableSubmitButton(cardForm);
-  hideInputError(cardForm);
+  disableSubmitButton(cardForm, validationConfig)
+  hideInputError(cardForm, validationConfig);
 });
 
 //Удаление
