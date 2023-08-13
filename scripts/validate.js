@@ -31,61 +31,49 @@ function checkValidateInput(inputElement, validationConfig) {
   };
 };
 
-function toggleButtonState(formElement, validationConfig) {
+function enableSubmitButton(formElement) {
   const submitButtonElement = formElement.querySelector(validationConfig.submitButtonSelector);
 
+  submitButtonElement.disabled = false;
+  submitButtonElement.classList.remove(validationConfig.inactiveButtonClass);
+}
+
+function disableSubmitButton(formElement) {
+  const submitButtonElement = formElement.querySelector(validationConfig.submitButtonSelector);
+
+  submitButtonElement.disabled = true;
+  submitButtonElement.classList.add(validationConfig.inactiveButtonClass);
+}
+
+function toggleButtonState(formElement, submitButtonElement) {
   if(!formElement.checkValidity()) {
-    submitButtonElement.disabled = true;
-    submitButtonElement.classList.add(validationConfig.inactiveButtonClass);
+    disableSubmitButton(formElement, submitButtonElement);
   } else {
-    submitButtonElement.disabled = false;
-    submitButtonElement.classList.remove(validationConfig.inactiveButtonClass);
+    enableSubmitButton(formElement, submitButtonElement);
   };
 };
 
-function formSubmitButtonEditProfile(validationConfig){
-  const inputList = Array.from(document.querySelectorAll('.popup__input'));
-  
-  inputList.forEach((inputElement) => {
-    hideError (inputElement, validationConfig);
-  });
-}
-
-// Дизейбл кнопки и скрытие ошибок при открытии OpenCards
-function disableButtonOpenCard(formElement) {
-  const submitButtonElement = formElement.querySelector(validationConfig.submitButtonSelector);
-  submitButtonElement.disabled = true;
-  submitButtonElement.classList.add(validationConfig.inactiveButtonClass);
-};
-
-function hideInputError(validationConfig) {
-  const inputList = Array.from(document.querySelectorAll('.popup__input'));
+function hideInputError(formElement) {
+  const inputList = Array.from(formElement.querySelectorAll(validationConfig.inputSelector));
 
   inputList.forEach((inputElement) => {
     hideError(inputElement, validationConfig);
   });
-  return;
-}
-
-// Enable кнопки при открытии ProfileEdit
-function enableButtonProfileEdit(formElement) {
-  const submitButtonElement = formElement.querySelector(validationConfig.submitButtonSelector);
-  submitButtonElement.disabled = false;
-  submitButtonElement.classList.remove(validationConfig.inactiveButtonClass);
 };
 
 function setEventListeners(formElement, validationConfig) {
-  const inputList = Array.from(document.querySelectorAll(validationConfig.inputSelector)); 
+  const inputList = Array.from(document.querySelectorAll(validationConfig.inputSelector));
+  const submitButtonElement = formElement.querySelector(validationConfig.submitButtonSelector);
 
-  toggleButtonState(formElement, validationConfig);
+  toggleButtonState(formElement, submitButtonElement);
 
   inputList.forEach((inputElement) => {
     inputElement.addEventListener('input', function () {
-      toggleButtonState(formElement, validationConfig);
+      toggleButtonState(formElement, submitButtonElement);
       checkValidateInput(inputElement, formElement, validationConfig);
     });
   });
-}
+};
 
 function enableValidation(validationConfig) {
   const formList = Array.from(document.querySelectorAll(validationConfig.formSelector));
@@ -94,3 +82,33 @@ function enableValidation(validationConfig) {
     setEventListeners(formElement, validationConfig);
   });
 };
+
+// function hasInvalidInput(inputList) {
+//   return inputList.some((inputElement) => {
+//   return !inputElement.validity.valid;
+// }); 
+// }
+
+
+
+// function formSubmitButtonEditProfile(validationConfig){
+  //   const inputList = Array.from(document.querySelectorAll('.popup__input'));
+    
+  //   inputList.forEach((inputElement) => {
+  //     hideError (inputElement, validationConfig);
+  //   });
+  // }
+  
+// Enable кнопки при открытии ProfileEdit
+// function enableButtonProfileEdit(formElement) {
+//   const submitButtonElement = formElement.querySelector(validationConfig.submitButtonSelector);
+//   submitButtonElement.disabled = false;
+//   submitButtonElement.classList.remove(validationConfig.inactiveButtonClass);
+// };
+
+// Дизейбл кнопки и скрытие ошибок при открытии OpenCards
+// function disableButtonOpenCard(formElement) {
+//   const submitButtonElement = formElement.querySelector(validationConfig.submitButtonSelector);
+//   submitButtonElement.disabled = true;
+//   submitButtonElement.classList.add(validationConfig.inactiveButtonClass);
+// };
