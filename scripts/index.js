@@ -65,7 +65,7 @@ openCardsPopupButton.addEventListener('click', () => {
   linkCardInput.value = '';
   nameCardInput.value = '';
   openPopup(cardForm);
-  disableSubmitButton(cardForm, validationConfig)
+  disableSubmitButton(cardForm, validationConfig);
   hideInputError(cardForm, validationConfig);
 });
 
