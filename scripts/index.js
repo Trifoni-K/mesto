@@ -16,6 +16,11 @@ const picLink = document.querySelector('.popup__image');
 const picName = document.querySelector('.popup__about');
 const templateItem = document.querySelector('.element-template').content;
 const cardsContainer = document.querySelector('.elements');
+const popupButtonCreate = document.querySelector('.popup__form_type_edit');
+const popupButtonAdd = document.querySelector('.popup__form_type_insert');
+const buttonSubmitCreate = popupButtonCreate.querySelector('.popup__button_type_edit');
+const buttonSubmitAdd = popupButtonAdd.querySelector('.popup__button_type_insert');
+
 
 // Функции открытия и закрытия попап
 //Открытие
@@ -28,8 +33,8 @@ openButtonEditProfile.addEventListener('click', () => {
   openPopup(profileForm);
   nameInput.value = profileName.textContent;
   jobInput.value = profileAbout.textContent;
-  enableSubmitButton(profileForm, validationConfig);
   hideInputError(profileForm, validationConfig);
+  enableSubmitButton(buttonSubmitCreate, validationConfig);
 });
 
 //Закрытие
@@ -62,11 +67,11 @@ const handleFormSubmitEdit = (evt) =>{
 
 // Карточки(открытие попап)
 openCardsPopupButton.addEventListener('click', () => {
-  linkCardInput.value = '';
-  nameCardInput.value = '';
   openPopup(cardForm);
-  disableSubmitButton(cardForm, validationConfig);
+  nameCardInput.value = '';
+  linkCardInput.value = '';
   hideInputError(cardForm, validationConfig);
+  disableSubmitButton(buttonSubmitAdd, validationConfig);
 });
 
 //Удаление
@@ -110,7 +115,6 @@ initialCards.map((item) => renderCard(item.link, item.name)).forEach(addCard);
 
 const handleAddCardFormSubmit = (evt) => {
   evt.preventDefault();
-
   const newCard = renderCard(linkCardInput.value, nameCardInput.value);
   addCard(newCard);
   closePopup(cardForm);
