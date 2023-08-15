@@ -16,10 +16,10 @@ const picLink = document.querySelector('.popup__image');
 const picName = document.querySelector('.popup__about');
 const templateItem = document.querySelector('.element-template').content;
 const cardsContainer = document.querySelector('.elements');
-const popupButtonCreate = document.querySelector('.popup__form_type_edit');
-const popupButtonAdd = document.querySelector('.popup__form_type_insert');
-const buttonSubmitCreate = popupButtonCreate.querySelector('.popup__button_type_edit');
-const buttonSubmitAdd = popupButtonAdd.querySelector('.popup__button_type_insert');
+const popupEditForm = document.querySelector('.popup__form_type_edit');
+const popupInsertForm = document.querySelector('.popup__form_type_insert');
+const buttonSubmitCreate = popupEditForm.querySelector('.popup__button_type_edit');
+const buttonSubmitInsert = popupInsertForm.querySelector('.popup__button_type_insert');
 
 
 // Функции открытия и закрытия попап
@@ -71,7 +71,7 @@ openCardsPopupButton.addEventListener('click', () => {
   nameCardInput.value = '';
   linkCardInput.value = '';
   hideInputError(cardForm, validationConfig);
-  disableSubmitButton(buttonSubmitAdd, validationConfig);
+  disableSubmitButton(buttonSubmitInsert, validationConfig);
 });
 
 //Удаление
