@@ -68,7 +68,7 @@ const handleFormSubmitEdit = (evt) => {
 };
 
 // Карточки
-// открытие попап создания
+// открытие попап
 openCardsPopupButton.addEventListener('click', () => {
   openPopup(cardForm);
   nameCardInput.value = '';
@@ -77,6 +77,7 @@ openCardsPopupButton.addEventListener('click', () => {
   insertFormValidator.hideInputError();
   insertFormValidator.disableSubmitButton();
 });
+
 // показ и создание кароточек
 const handleOpenPicPopup = (name, link) => {
   openPopup(imageForm);
@@ -85,22 +86,24 @@ const handleOpenPicPopup = (name, link) => {
   picName.textContent = name;
 };
 
-initialCards.forEach((item) => {
-  const card = new Card(item, '.element-template', handleOpenPicPopup)
+const createCard = (item) => {
+  const card = new Card(item, '.element-template', handleOpenPicPopup);
   const cardElement = card.generateCard();
-  cardsContainer.append(cardElement);
-})
+  return cardElement;
+};
+
+initialCards.forEach((item) => {
+  cardsContainer.append(createCard(item));
+});
 
 const handleAddCardFormSubmit = (evt) => {
   evt.preventDefault();
-  const newCard = new Card({ name: nameCardInput.value, link: linkCardInput.value }, '.element-template');
-  const cardElement = newCard.generateCard();
-  cardsContainer.prepend(cardElement);
+  cardsContainer.prepend(createCard({ name: nameCardInput.value, link: linkCardInput.value }, '.element-template'));
   closePopup(cardForm);
-}
+};
 
 // Закрытие по оверлей
-popupList.forEach(popup => {
+popupList.forEach((popup) => {
   popup.addEventListener('click', (evt) => {
     if (evt.target === evt.currentTarget) {
       closePopup(popup);
@@ -108,9 +111,9 @@ popupList.forEach(popup => {
   });
 });
 
-//Валидация форм(редактирования профиля создания карточки)
-editFormValidator.enableValidation()
-insertFormValidator.enableValidation()
+// Валидация форм(редактирования профиля создания карточки)
+editFormValidator.enableValidation();
+insertFormValidator.enableValidation();
 //Отправка формы(редактировать профиль)
 profileForm.addEventListener('submit', handleFormSubmitEdit);
 //Отправка формы(создание карточки)
